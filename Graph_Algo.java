@@ -17,8 +17,8 @@ public class Graph_Algo implements graph_algorithms {
      * @param g
      */
     public void init(graph g) {
-       this._grph=g;
-        }
+        this._grph = g;
+    }
 
 
     @Override
@@ -48,8 +48,8 @@ public class Graph_Algo implements graph_algorithms {
                 node_data n = it.next();
                 if (n.getTag() != 0) count++;
             }
-            if (count == this._grph.nodeSize()) flag= true;
-            else flag= false;
+            if (count == this._grph.nodeSize()) flag = true;
+            else flag = false;
         }
         resetTag();
         return flag;
@@ -107,7 +107,6 @@ public class Graph_Algo implements graph_algorithms {
      * inspired by the following
      * https://www.geeksforgeeks.org/shortest-path-unweighted-graph/
      * using queue https://www.youtube.com/watch?v=oDqjPvD54Ss&t=325s
-     *
      */
     private List<node_data> BFS(int src, int dest) {
         Queue<node_data> queue = new ArrayDeque<>();

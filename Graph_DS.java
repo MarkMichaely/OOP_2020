@@ -1,23 +1,20 @@
 package ex0;
 
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 /**
  * this class represents an undirectional unweighted graph.
  * It should support a large number of nodes (over 10^6, with average degree of 10).
  */
 public class Graph_DS implements graph {
-    private Set<node_data> _nS; //node set
+    private HashMap<Integer, node_data> _hM; //hashMap
     private int _vertex;
     private int _edges;
     private int _modeCount;
 
     public Graph_DS() {
-        this._nS = new HashSet<node_data>();
+        this._hM = new HashMap<Integer, node_data>();
         this._vertex = 0;
         this._edges = 0;
         this._modeCount = 0;
@@ -30,14 +27,8 @@ public class Graph_DS implements graph {
      * @return the node_data by the node_id, null if none.
      */
     public node_data getNode(int key) {
-        if (this._nS != null) {
-            Iterator<node_data> it = _nS.iterator();
-            while (it.hasNext()) {
-                node_data node = it.next();
-                if (node.getKey() == key) return node;
-            }
-        }
-        return null;
+        return _hM.get(key);
+
     }
 
     @Override
@@ -46,13 +37,9 @@ public class Graph_DS implements graph {
      * 	 * Note: this method should run in O(1) time.
      */
     public boolean hasEdge(int node1, int node2) {
-        if (this.getNode(node1)
-                .hasNi(node2)
-                && this.getNode(node2).
-                hasNi(node1))
-            return true;
-        else
-            return false;
+        return (this.getNode(node1)
+                .hasNi(node2));
+
     }
 
     @Override
@@ -61,12 +48,13 @@ public class Graph_DS implements graph {
      * 	 * Note: this method should run in O(1) time.
      */
     public void addNode(node_data n) {
-        if (this.getNode(n.getKey()) == null) {
-            this._nS.add(n);
+        if (!this._hM.containsValue(n)) {
+            this._hM.put(n.getKey(), n);
             this._vertex++;
             this._modeCount++;
         }
     }
+
 
     @Override
     /**
@@ -75,9 +63,8 @@ public class Graph_DS implements graph {
      *   Note2: if the edge node1-node2 already exists - the method simply does nothing.
      */
     public void connect(int node1, int node2) {
-        if (!this.hasEdge(node1, node2)) {
-            this.getNode(node1).
-                    addNi(getNode(node2));
+        if (this._hM.containsKey(node1) && this._hM.containsKey(node2) && !this.hasEdge(node1, node2)) {
+            this.getNode(node1).addNi(this.getNode(node2));
             this._edges++;
             this._modeCount++;
         }
@@ -90,7 +77,7 @@ public class Graph_DS implements graph {
      * Note: this method should run in O(1) time.
      */
     public Collection<node_data> getV() {
-        return this._nS;
+        return this._hM.values();
     }
 
     @Override
@@ -112,21 +99,21 @@ public class Graph_DS implements graph {
      * @return the data of the removed node (null if none).
      */
     public node_data removeNode(int key) {
-        node_data node=this.getNode(key);
+        node_data node = this.getNode(key);
         if (node != null) {
             Iterator<node_data> it = this.getV(key)
                     .iterator();
-            HashSet<node_data> set=new HashSet<node_data>();
-                while (it.hasNext()) {
-                    node_data n=it.next();
-                    set.add(n);
-                    it.remove();
-                }
-                Iterator<node_data> itr=set.iterator();
-                while (itr.hasNext()){
-                    node_data n=itr.next();
-                    removeEdge(n.getKey(),key);
-                }
+            HashSet<node_data> set = new HashSet<node_data>();
+            while (it.hasNext()) {
+                node_data n = it.next();
+                set.add(n);
+                it.remove();
+            }
+            Iterator<node_data> itr = set.iterator();
+            while (itr.hasNext()) {
+                node_data n = itr.next();
+                removeEdge(n.getKey(), key);
+            }
             this._vertex--;
             this._modeCount++;
             this.getV().remove(node);

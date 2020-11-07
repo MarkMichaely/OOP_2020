@@ -65,7 +65,8 @@ public class NodeData implements node_data {
      * creates an edge between the two nodes.
      */
     public void addNi(node_data t) {
-        if (t.getKey() != this.getKey()) {
+        if ((t.getKey() != this.getKey())
+        &&!this._neighbors.contains(t)) {
             this.getNi().add(t);
             t.getNi().add(this);
         }
