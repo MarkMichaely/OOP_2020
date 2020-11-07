@@ -3,10 +3,10 @@ An implemantion of undirectional unwighted graph in Java. it is able to calculat
 it is able to do so by using breath first search alogrithem
 
 **Links:**
-*https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)
-*https://www.youtube.com/watch?v=oDqjPvD54Ss&t=325s
-*https://www.youtube.com/watch?v=s-CYnVz-uh4&t=2305s
-*https://en.wikipedia.org/wiki/Breadth-first_search
+* https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)
+* https://www.youtube.com/watch?v=oDqjPvD54Ss&t=325s
+* https://www.youtube.com/watch?v=s-CYnVz-uh4&t=2305s
+* https://en.wikipedia.org/wiki/Breadth-first_search
 
 **methods**
 
