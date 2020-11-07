@@ -106,7 +106,6 @@ public class Graph_Algo implements graph_algorithms {
      * if used should always be use resetTag method to reset tags to 0
      * inspired by the following
      * https://www.geeksforgeeks.org/shortest-path-unweighted-graph/
-     * advice on using Map https://stackoverflow.com/questions/41789767/finding-the-shortest-path-nodes-with-breadth-first-search
      * using queue https://www.youtube.com/watch?v=oDqjPvD54Ss&t=325s
      *
      */
