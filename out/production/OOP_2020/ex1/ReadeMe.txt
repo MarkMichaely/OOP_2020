@@ -1,0 +1,8 @@
+LINKS:
+https://stackoverflow.com/questions/5804043/convert-long-into-integer
+https://www.tutorialspoint.com/json_simple/json_simple_quick_guide.htm
+https://mkyong.com/java/json-simple-how-to-parse-json/
+https://stackoverflow.com/questions/19195492/extracting-keys-from-a-jsonobject-using-keyset
+https://crunchify.com/how-to-write-json-object-to-file-in-java/
+https://www.coursera.org/lecture/advanced-data-structures/core-dijkstras-algorithm-2ctyF
+https://stackoverflow.com/questions/35017393/how-to-create-file-in-a-project-folder-in-java
